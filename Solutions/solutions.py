@@ -46,7 +46,6 @@ def NonRepeatingChar(s):
 
             while curr.next: # not tail:
                 curr = curr.next
-                print("curr", curr.data)
                 if curr.data == data:
                     curr.prev.next = curr.next
                     curr.next.prev = curr.prev
@@ -60,15 +59,11 @@ def NonRepeatingChar(s):
     DLL = DLL()
 
     for char in s:
-        print("char", char)
         if char not in seen:
             seen.add(char)
-            print("Seen", seen)
             DLL.add(char)
-            print("DLL after add", DLL.head.data)
         else:
             DLL.remove(char)
-            print("DLL after del", DLL.head.data)
 
     # if there are non-repeating chars
     if DLL:
