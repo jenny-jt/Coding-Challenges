@@ -7,7 +7,8 @@ Example 1: “cabc” -> a
 Example 2: “abc” -> a
 Example 2: “bacab” -> c
 
-    # constant time solution: using hash map and DLL
+    # constant time solution: using hash map/set and DLL
+
 
 
 # Arrays 
