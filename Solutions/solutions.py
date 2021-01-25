@@ -1,12 +1,6 @@
 # Strings
-1. Non-repeating Character
-Given a string, return the first non-repeating char in a string
-Example 1: “cabc” -> a
-Example 2: “abc” -> a
-Example 2: “bacab” -> c
 
-    # constant time solution: using hash map/set and DLL
-
+# constant time solution: using hash map/set and DLL
 def NonRepeatingChar(s):
     """
     Given a string s, return the first non-repeating char in s
@@ -18,7 +12,7 @@ def NonRepeatingChar(s):
     c
     """
 
-        # implement DLL
+    # implement DLL
     # add method; instantiate node and add it to DLL, adjust next and prev pointers
     # del method: find node, remove node, and reassign pointers
     class Node:
@@ -44,32 +38,48 @@ def NonRepeatingChar(s):
 
         def remove(self, data):
             curr = self.head
+            # if the head is the node that we want to remove
             if curr.data == data:
                 self.head = curr.next
                 self.head.prev = None
+                return
 
             while curr.next: # not tail:
+                curr = curr.next
+                print("curr", curr.data)
                 if curr.data == data:
                     curr.prev.next = curr.next
                     curr.next.prev = curr.prev
+                    return
             else: #curr.next = None so curr is the tail
                 if curr.data == data:
                     curr.prev.next = None
+                    return
 
     seen = set()
     DLL = DLL()
 
     for char in s:
+        print("char", char)
         if char not in seen:
             seen.add(char)
+            print("Seen", seen)
             DLL.add(char)
+            print("DLL after add", DLL.head.data)
         else:
             DLL.remove(char)
+            print("DLL after del", DLL.head.data)
 
     # if there are non-repeating chars
     if DLL:
         return DLL.head.data
 
+
+print(NonRepeatingChar("cabc"))
+print(NonRepeatingChar("bacab"))
+
+
+###### subset_sum
 # using hashmap .045 runtime
 def subset_sum(nums, target):
     """given array of nums, return a subset that adds up to target"""
