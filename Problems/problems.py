@@ -33,7 +33,5 @@ def subset_sum(nums, target):
 
 print(subset_sum([3, 34 , 4 , 12 , 5 , 2] , 9))
 
-# more optimized
-# other = target - sum(nums[i]+nums[j]) 
-# if other in range(j+1, len(nums)), return [nums[i], nums[j], other]
+# more optimized, dp
 nums.sort()
