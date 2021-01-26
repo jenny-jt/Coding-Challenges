@@ -1,4 +1,4 @@
-# Strings
+#### 1. Non-repeating Character
 
 # constant time solution: using hash map/set and DLL
 def NonRepeatingChar(s):
@@ -74,7 +74,23 @@ print(NonRepeatingChar("cabc"))
 print(NonRepeatingChar("bacab"))
 
 
-###### subset_sum
+#### 2. Subset Sum
+
+# naive solution: quadratic run time
+def subset_sum(nums, target):
+    res = []
+    
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == target:
+                res.append([nums[i], nums[j]])
+    if res:
+        return (True, res[0])
+    
+    return False
+
+print(subset_sum([3, 34 , 4 , 12 , 5 , 2] , 9))
+
 # using hashmap .045 runtime
 def subset_sum(nums, target):
     """given array of nums, return a subset that adds up to target"""
@@ -106,6 +122,7 @@ def subset_sum(nums, target):
                 dp[i].append([num, i-num])
 
     return dp[target][0]
+
 
 nums = [3, 34, 4, 12, 5, 2]
 target = 9
