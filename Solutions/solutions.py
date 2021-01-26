@@ -105,9 +105,11 @@ def subset_sum(nums, target):
         else:
             d[other] = num
 
+
 nums = [3, 34, 4, 12, 5, 2]
 target = 9
 print(subset_sum(nums, target))
+
 
 # using dp, lots of unnecessary work but .035sec runtime vs .045 runtime
 def subset_sum(nums, target):
