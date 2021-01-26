@@ -50,7 +50,7 @@ def NonRepeatingChar(s):
                     curr.prev.next = curr.next
                     curr.next.prev = curr.prev
                     return
-            else: #curr.next = None so curr is the tail
+            else: # curr.next = None so curr is the tail
                 if curr.data == data:
                     curr.prev.next = None
                     return
@@ -73,23 +73,25 @@ def NonRepeatingChar(s):
 print(NonRepeatingChar("cabc"))
 print(NonRepeatingChar("bacab"))
 
-
 #### 2. Subset Sum
 
+
 # naive solution: quadratic run time
-def subset_sum(nums, target):
-    res = []
-    
-    for i in range(len(nums)):
+def subset_sum(nums, target):
+    res = []
+
+    for i in range(len(nums)):
         for j in range(i+1, len(nums)):
             if nums[i] + nums[j] == target:
                 res.append([nums[i], nums[j]])
     if res:
-        return (True, res[0])
-    
+        return (True, res[0])
+
     return False
 
+
 print(subset_sum([3, 34 , 4 , 12 , 5 , 2] , 9))
+
 
 # using hashmap .045 runtime
 def subset_sum(nums, target):
