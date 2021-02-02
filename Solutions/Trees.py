@@ -115,19 +115,6 @@ class Tree():
         # result = [7, 17, 14]
         # d = {1:3, 2:5, 4:none, 3:6, 5:8, 6:none, 8:none, 9:none}
         
-def diagonal_sum():    
-    """given binary tree, calculate diagonal sum"""
-    arr = []
-    # start at root
-    # store node.left in q
-    # sum node.right
-    
-    if node.right:
-        # add all node.rights until reach leaf
-        dfs(node, arr)
-
-    q.pop()
-        
         
 def invert_tree(node):
     """given binary tree, invert the tree"""
@@ -142,5 +129,57 @@ def invert_tree(node):
     
     return node
 
+
+# using dict
+def diagonal_sum():    
+    """given binary tree, calculate diagonal sum"""
+    # initialize dict
+    d = defaultdict(int)
+
+    # traverse tree
+    i = 0
+    def dfs(node, d, i):
+        if not node:
+            return
+        # if R child
+        if node.right:
+            d[i] += node.right
+        # if L child
+        if node.left:
+            d[i+1] += node.left
+
+        dfs(node.right, d, i)
+        dfs(node.left, d, i+1)
+    # unsure if I should put d = dfs(root, d, 0)
+    dfs(root, d, 0)
+
+    # should be list of integer sums [7, 17, 14]
+    return d.values()
+
+
+# tried using q and sum array, order of q summing up diagonals in L direction, not R direction
+def diagonal_sum():    
+    """given binary tree, calculate diagonal sum"""
+    i = 0
+    def dfs(node, q, sum_, i):
+        if not node:
+            return
+        # if R child
+        sum_[i] += node.right
+        # if L child
+        q.append(node.left)
+
+        dfs(node.right, q, sum_, i)
+        dfs(node.left, q, sum_, i+1)
+    # add node.right until node.right == None
+    # add node.left to q
+    dfs(root, [], [], 0)
+    # pop from q and add all up until hit none, then start new entry in result array
+    j = 0
+    while q:
+        next_l = q.pop()
+        if next_l:
+            sum_[j] += next_l
+        j += 1
 
 
