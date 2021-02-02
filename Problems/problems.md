@@ -27,7 +27,11 @@ travel successfully between pt A and pt B
 
 
 ### Trees
-Define a tree structure - start with a tree with two nodes.
+4. Define a tree structure - start with a tree with two nodes.
 For an extra challenge, ask yourself how the implementation would
 change if there are more than two branches per node. An example of this would be a Trie.
 These are very useful for autocomplete and the like
+
+5. Write a function that returns the lowest common ancestor of two nodes (the lowest node in T that has both n1 and n2 as descendants)
+
+6. Write a function that returns the lowest common ancestor of a list of nodes (the lowest node in T that has both n1 and n2 as descendants)

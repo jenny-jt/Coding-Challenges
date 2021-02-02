@@ -9,8 +9,6 @@ def breadth_first_search(node, v):
     return False if not
     breadth_first_search(node, v)
     """
-
-    
     return
 
 
@@ -47,12 +45,3 @@ def challenge_lowest_common_ancestor(node, alon):
 # trees and Red-Black Trees (self balancing trees)
 
 
-
-if __name__ == '__main__':
-    import doctest
-
-    print()
-    result = doctest.testmod()
-    if not result.failed:
-        print("ALL TESTS PASSED!")
-    print()
