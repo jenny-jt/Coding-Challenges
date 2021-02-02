@@ -135,6 +135,7 @@ def diagonal_sum():
     """given binary tree, calculate diagonal sum"""
     # initialize dict
     d = defaultdict(int)
+    d[0] = root.val
 
     # traverse tree
     i = 0
