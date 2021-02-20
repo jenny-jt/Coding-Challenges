@@ -249,7 +249,7 @@ class Trie:
         return len(num_children)
 
 
-# Escape Room Keypads- supposed to use Trie
+# Escape Room Keypads- supposed to use Trie, using sets here
 
 def numKeypadSolutions(wordlist, keypads):
     """input of 2 string arrays, output int array with num of words for each keypad"""
