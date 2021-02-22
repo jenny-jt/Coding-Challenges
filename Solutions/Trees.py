@@ -223,7 +223,7 @@ class Trie:
         """
         current = self.root
         for char in word:
-            print("SEARCH char", char)
+            # print("SEARCH char", char)
             if not current.children[ord(char) - ord('a')]:
                 return False # that character is not present in that children
             # moving along to child node
@@ -267,5 +267,6 @@ def numKeypadSolutions(wordlist, keypads):
                 ans[i] += 1
 
     return ans
+
 
 print(numKeypadSolutions(['APPLE', 'PLEAS', 'PLEASE', 'DOG'], ['PBNEDAL', 'OESADLP', 'MOTLAJF', 'GBLKORD']))
